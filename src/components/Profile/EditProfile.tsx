@@ -1,18 +1,24 @@
 import {useState} from "react";
 
-const EditProfile = () => {
+interface Props {
+    close: () => void;
+}
+
+const EditProfile = ({close}: Props) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
 
     const handleClickSave = () => {
         // TODO: Implement edit profile save and close logic
         alert('Profile updated successfully!');
+        close();
     }
 
-    const handleClickClose = () => {
-        //TODO: Implement edit profile close logic
-        alert('Profile update canceled!');
-    }
+    // const handleClickClose = () => {
+    //     //TODO: Implement edit profile close logic
+    //     alert('Profile update canceled!');
+    //     close()
+    // }
 
     const handleClickClear = () => {
         setFirstName('');
@@ -36,7 +42,7 @@ const EditProfile = () => {
                 />
             </label>
             <button onClick={handleClickSave}>Save and Close</button>
-            <button onClick={handleClickClose}>Close without saving</button>
+            <button onClick={close}>Close without saving</button>
             <button onClick={handleClickClear}>Clear</button>
         </>
     );
