@@ -9,10 +9,23 @@ const ChangePassword = ({close}: Props) => {
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    const handleClickClear = () => {
+        setOldPassword('');
+        setNewPassword('');
+        setConfirmPassword('');
+    }
+
     const handleClickSave = () => {
+        if (newPassword == confirmPassword) {
+            alert('Password updated successfully!');
+            close();
+        } else {
+            alert('Passwords do not match!');
+            setNewPassword('');
+            setConfirmPassword('');
+            return;
+        }
         //TODO: Implement save new password logic
-        alert('Password updated successfully!');
-        close();
     }
 
     // const handleClickClose = () => {
@@ -20,12 +33,6 @@ const ChangePassword = ({close}: Props) => {
     //     alert('Password update canceled!');
     //     close();
     // }
-
-    const handleClickClear = () => {
-        setOldPassword('');
-        setNewPassword('');
-        setConfirmPassword('');
-    }
 
     return (
         <>
