@@ -19,7 +19,7 @@ const ChangePassword = ({close}: Props) => {
     }
 
     const handleClickSave = () => {
-        if (newPassword == confirmPassword) {
+        if (newPassword === confirmPassword) {
             dispatch(changePassword(newPassword));
             close();
         } else {
