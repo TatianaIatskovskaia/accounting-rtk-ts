@@ -2,10 +2,10 @@ import {Navigate, Route, Routes} from "react-router";
 import './App.css'
 import Profile from "./components/Profile";
 import Guest from "./components/Guest";
+import {useAppSelector} from "./app/hooks.ts";
 
 function App() {
-    //TODO implement token retrieval from global state logic
-    const token = 'пкупкуп';
+    const token = useAppSelector(state => state.token)
 
     return (
         <Routes>
